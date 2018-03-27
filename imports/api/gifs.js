@@ -11,6 +11,10 @@ if (Meteor.isServer) {
   Meteor.publish('userGifs', function() {
     return Gifs.find({ userId: this.userId });
   });
+
+  Meteor.publish('bestUsers', function() {
+    return Gifs.find({});
+  });
   Meteor.methods({
     insertNewGif(urlGif) {
       if (!Meteor.userId()) {

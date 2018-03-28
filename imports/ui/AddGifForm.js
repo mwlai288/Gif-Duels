@@ -19,7 +19,11 @@ class AddGifForm extends Component {
     return (
       <div>
         <form onSubmit={this.addGif}>
-          <input type="text" placeholder="copy and paste gif url" ref="gif" />
+          <input
+            type="text"
+            placeholder="https://media1.giphy.com/media/"
+            ref="gif"
+          />
           <button type="submit">Add Gif</button>
         </form>
       </div>

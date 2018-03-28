@@ -28,6 +28,7 @@ class SearchGif extends Component {
   };
 
   render() {
+    console.log(this.state.gifs);
     return (
       <div>
         <Search>

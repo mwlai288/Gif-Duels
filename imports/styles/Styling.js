@@ -62,3 +62,8 @@ export const Search = styled.div`
   justify-content: center;
   padding-top: 10px 10px;
 `;
+
+export const Warning = styled.p`
+  display: flex;
+  font-size: 16px;
+`;

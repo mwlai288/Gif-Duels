@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Warning } from '../styles/Styling';
 
 class AddGifForm extends Component {
   addGif = (e) => {
@@ -25,6 +26,7 @@ class AddGifForm extends Component {
             ref="gif"
           />
           <button type="submit">Add Gif</button>
+          <Warning>* Please use GIF Link url from Giphy.com</Warning>
         </form>
       </div>
     );

@@ -1,16 +1,17 @@
 import React from 'react';
 import Accounts from './Accounts';
 import { Link } from 'react-router-dom';
+import { HeaderStyle } from '../styles/Styling';
 
 const Header = () => {
   return (
-    <div>
+    <HeaderStyle>
       <Accounts />
       <Link to="/">Home</Link>
-      <Link to="/hall">Hall of Fame</Link>
       <Link to="/voting">To Battle</Link>
+      <Link to="/hall">Hall of Fame</Link>
       <Link to="/search">Find A Gif</Link>
-    </div>
+    </HeaderStyle>
   );
 };
 

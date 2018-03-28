@@ -2,16 +2,16 @@ import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
 import Gifs from '../api/gifs';
 import VoteDetails from './VoteDetails';
+import { GifShow } from '../styles/Styling';
 
 class Vote extends Component {
   render() {
-    console.log(this.props.gifs);
     return (
-      <div>
+      <GifShow>
         {this.props.gifs.map((gif) => {
           return <VoteDetails gif={gif} key={gif._id} />;
         })}
-      </div>
+      </GifShow>
     );
   }
 }

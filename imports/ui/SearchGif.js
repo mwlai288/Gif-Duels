@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import AddGifForm from './AddGifForm';
+import { GifGrid, GifStyling, Search } from '../styles/Styling';
 
 class SearchGif extends Component {
   state = {
@@ -12,9 +13,9 @@ class SearchGif extends Component {
     e.preventDefault();
     const search = this.state.search;
     const res = await axios.get(
-      `https://api.giphy.com/v1/gifs/search?api_key=ovNC00vRyrC0NMdQcPl4XDMdUsEGRVyu&q=${search}&limit=15&offset=0&rating=R&lang=en`
+      `https://api.giphy.com/v1/gifs/search?api_key=ovNC00vRyrC0NMdQcPl4XDMdUsEGRVyu&q=${search}&offset=0&rating=PG-13&lang=en&limit=15`
     );
-    console.log(res);
+
     this.setState({
       gifs: res.data.data
     });
@@ -29,26 +30,30 @@ class SearchGif extends Component {
   render() {
     return (
       <div>
-        <div>
-          <input
-            onChange={this._handleChange}
-            type="text"
-            name="search"
-            value={this.state.search}
-          />
-          <button onClick={this.findGifs}>Search</button>
+        <Search>
+          <form>
+            <input
+              onChange={this._handleChange}
+              type="text"
+              name="search"
+              value={this.state.search}
+              placeholder="Search"
+            />
+            <button onClick={this.findGifs}>Search</button>
+          </form>
+
           <AddGifForm />
-        </div>
-        <div>
+        </Search>
+        <GifGrid>
           {this.state.gifs.map((gif) => {
             return (
               <div key={gif.id}>
-                <img src={gif.images.downsized.url} alt="" />
-                <p>{gif.images.downsized.url}</p>
+                <GifStyling src={gif.images.downsized.url} alt="" />
+                <h5>{gif.images.downsized.url}</h5>
               </div>
             );
           })}
-        </div>
+        </GifGrid>
       </div>
     );
   }

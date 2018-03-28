@@ -1,5 +1,6 @@
 import React from 'react';
 import Gifs from '../api/gifs';
+import { GifStyling } from '../styles/Styling';
 
 const GifDetails = (props) => {
   remove = () => {
@@ -8,11 +9,9 @@ const GifDetails = (props) => {
 
   return (
     <div>
-      <div>
-        <img src={props.gif.urlGif} alt="" />
-        {props.gif.score}
-        <button onClick={this.remove}>Delete</button>
-      </div>
+      <GifStyling src={props.gif.urlGif} alt="" />
+      <h2>{props.gif.score}</h2>
+      <button onClick={this.remove}>Delete</button>
     </div>
   );
 };

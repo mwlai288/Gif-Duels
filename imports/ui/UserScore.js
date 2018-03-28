@@ -1,12 +1,13 @@
 import React from 'react';
+import { GifStyling, Fame } from '../styles/Styling';
 
 const UserScore = (props) => {
   return (
-    <div>
-      <h1>{props.gif.score} </h1>
-      <img src={props.gif.urlGif} alt="" />
+    <Fame>
       <h3>{props.gif.user}</h3>
-    </div>
+      <h1>{props.gif.score} </h1>
+      <GifStyling src={props.gif.urlGif} alt="" />
+    </Fame>
   );
 };
 

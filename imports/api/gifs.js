@@ -1,5 +1,6 @@
 import { Mongo } from 'meteor/mongo';
 import { ReactiveAggregate } from 'meteor/tunguska:reactive-aggregate';
+import SimpleSchema from 'simpl-schema';
 
 const Gifs = new Mongo.Collection('gifs');
 
@@ -20,6 +21,15 @@ if (Meteor.isServer) {
       if (!Meteor.userId()) {
         throw new Meteor.Error('not authorized');
       }
+
+      new SimpleSchema({
+        urlGif: {
+          type: String,
+          label: 'Your Gif',
+          regEx: SimpleSchema.RegEx.Url
+        }
+      }).validate({ urlGif });
+
       Gifs.insert({
         score: 0,
         urlGif,

@@ -3,11 +3,13 @@ import Gifs from '../api/gifs';
 import axios from 'axios';
 import AddGifForm from './AddGifForm';
 import { GifGrid, GifStyling, Search } from '../styles/Styling';
+import Clipboard from 'react-clipboard.js';
 
 class SearchGif extends Component {
   state = {
     search: '',
-    gifs: []
+    gifs: [],
+    justCopied: false
   };
 
   findGifs = async (e) => {
@@ -58,8 +60,9 @@ class SearchGif extends Component {
             return (
               <div key={gif.id}>
                 <GifStyling src={gif.images.downsized.url} alt="" />
-                <h5>{gif.images.downsized.url}</h5>
-                <button onClick={this.addIt}>Add</button>
+                <Clipboard data-clipboard-text={gif.images.downsized.url}>
+                  Copy Link
+                </Clipboard>
               </div>
             );
           })}

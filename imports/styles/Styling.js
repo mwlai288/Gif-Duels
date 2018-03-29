@@ -1,11 +1,15 @@
 import styled, { keyframes } from 'styled-components';
-import { fadeInUp } from 'react-animations';
+import { fadeInUp, flipInX, swing } from 'react-animations';
 
 const FadeGifUp = keyframes`${fadeInUp}`;
+const FlipInX = keyframes`${flipInX}`;
+const SwingClick = keyframes`${swing}`;
 
 export const Fame = styled.div`
+  animation: 2s ${FlipInX};
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   padding: 5px;
 `;
 export const GifGrid = styled.div`
@@ -34,7 +38,7 @@ export const GifVote = styled.div`
     grid-gap: 28px;
   }
   &:active {
-    border: 20px solid green;
+    animation: 2s ${SwingClick};
   }
 `;
 

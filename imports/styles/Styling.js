@@ -1,9 +1,9 @@
 import styled, { keyframes } from 'styled-components';
-import { fadeInUp, flipInX, swing } from 'react-animations';
+import { fadeInUp, flipInX, tada } from 'react-animations';
 
 const FadeGifUp = keyframes`${fadeInUp}`;
 const FlipInX = keyframes`${flipInX}`;
-const SwingClick = keyframes`${swing}`;
+const SwingClick = keyframes`${tada}`;
 
 export const Fame = styled.div`
   animation: 2s ${FlipInX};
@@ -35,7 +35,7 @@ export const GifStyling = styled.img`
 export const GifVote = styled.div`
   margin-top: 10rem;
   &:active {
-    animation: 2s ${SwingClick};
+    animation: 1s ${SwingClick};
   @media (min-width: 700px) {
     grid-gap: 28px;
   }

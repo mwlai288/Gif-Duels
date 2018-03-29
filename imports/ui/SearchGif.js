@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Gifs from '../api/gifs';
 import axios from 'axios';
 import AddGifForm from './AddGifForm';
 import { GifGrid, GifStyling, Search } from '../styles/Styling';
@@ -27,8 +28,15 @@ class SearchGif extends Component {
     this.setState(newState);
   };
 
+  addIt = () => {
+    Meteor.call('insertNewGif', urlGif, (err, res) => {
+      if (err) {
+        throw new Meteor.Error('invalid gif url');
+      }
+    });
+  };
+
   render() {
-    console.log(this.state.gifs);
     return (
       <div>
         <Search>
@@ -51,6 +59,7 @@ class SearchGif extends Component {
               <div key={gif.id}>
                 <GifStyling src={gif.images.downsized.url} alt="" />
                 <h5>{gif.images.downsized.url}</h5>
+                <button onClick={this.addIt}>Add</button>
               </div>
             );
           })}

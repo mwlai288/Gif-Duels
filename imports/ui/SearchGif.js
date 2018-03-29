@@ -28,7 +28,7 @@ class SearchGif extends Component {
     this.setState(newState);
   };
 
-  addIt = () => {
+  addIt = (urlGif) => {
     Meteor.call('insertNewGif', urlGif, (err, res) => {
       if (err) {
         throw new Meteor.Error('invalid gif url');

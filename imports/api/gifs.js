@@ -36,7 +36,6 @@ if (Meteor.isServer) {
         userId: Meteor.userId(),
         user: Meteor.user().username
       });
-      alert('Added Succesfully');
     },
     voteOnGif(gif) {
       if (Meteor.userId()) {

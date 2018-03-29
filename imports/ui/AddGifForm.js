@@ -7,11 +7,8 @@ class AddGifForm extends Component {
     const urlGif = this.refs.gif.value.trim();
     if (urlGif !== '') {
       if (Meteor.userId()) {
-        Meteor.call('insertNewGif', urlGif, (err, res) => {
-          if (err) {
-            throw new Meteor.Error('invalid gif url');
-          }
-        });
+        Meteor.call('insertNewGif', urlGif);
+        Bert.alert('Added Successfully', 'success', 'fixed-top', 'fa-check');
         this.refs.gif.value = '';
       }
     }

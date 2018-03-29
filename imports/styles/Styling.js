@@ -34,6 +34,8 @@ export const GifStyling = styled.img`
 
 export const GifVote = styled.div`
   margin-top: 10rem;
+  &:active {
+    animation: 2s ${SwingClick};
   @media (min-width: 700px) {
     grid-gap: 28px;
   }
